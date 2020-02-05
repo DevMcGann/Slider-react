@@ -1,4 +1,4 @@
-import React,{useState} from 'react';
+import React,{useState,useEffect} from 'react';
 import './slider.scss';
 import SliderItem from './SliderItem.js'
 import i1 from '../Pics/iphones.jpg'
@@ -18,6 +18,17 @@ const Slider = () => {
     const goRight = () => {
         x === -100 *(arr.length -1) ? setX(0) : setX(x - 100);
     }
+
+
+    useEffect(()=>{
+        function temporizador() {
+            setTimeout(function(){ 
+                goRight(); 
+            }, 3000);
+        }
+
+        temporizador()
+    },[x])
 
     return ( 
         <div className="slider">
